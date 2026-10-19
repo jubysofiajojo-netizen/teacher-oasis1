@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教師舒心療癒儀表板</title>
-    <!-- 引入 Google Fonts (優雅的明體與圓潤的黑體) -->
+    <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
@@ -18,13 +18,13 @@
             theme: {
                 extend: {
                     colors: {
-                        sand: '#F4EFE6',    /* 燕麥沙色 (背景) */
-                        sage: '#C3D3C4',    /* 鼠尾草綠 (盼望燈塔) */
-                        clay: '#DDA793',    /* 赤陶土色 (維他命) */
-                        slate: '#A3B1C6',   /* 迷霧藍 (呼吸) */
-                        stone: '#8B8C89',   /* 灰石色 (智慧小語) */
-                        blush: '#E5B8B7',   /* 柔粉色 (被聊療) */
-                        forest: '#2C3D30',  /* 深林綠 (主文字) */
+                        sand: '#F4EFE6',    
+                        sage: '#C3D3C4',    
+                        clay: '#DDA793',    
+                        slate: '#A3B1C6',   
+                        stone: '#8B8C89',   
+                        blush: '#E5B8B7',   
+                        forest: '#2C3D30',  
                     },
                     fontFamily: {
                         sans: ['"Noto Sans TC"', 'sans-serif'],
@@ -52,14 +52,11 @@
     </script>
 
     <style>
-        /* 基礎設定 */
         body {
             background-color: #F4EFE6;
             color: #2C3D30;
             overflow-x: hidden;
         }
-
-        /* 柔和毛玻璃卡片 */
         .glass-panel {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(16px);
@@ -74,8 +71,6 @@
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.06);
             background: rgba(255, 255, 255, 0.5);
         }
-
-        /* 有機流體形狀 (呼吸球) */
         .organic-blob {
             width: 140px;
             height: 140px;
@@ -94,14 +89,11 @@
             animation: morph 8s ease-in-out infinite;
             margin: 0 auto;
         }
-
         @keyframes morph {
             0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
             34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
             67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
         }
-
-        /* 自訂捲軸 */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(139, 140, 137, 0.3); border-radius: 10px; }
@@ -109,7 +101,7 @@
 </head>
 <body class="min-h-screen relative selection:bg-sage selection:text-forest flex flex-col">
 
-    <!-- 背景動態環境光暈 (Ambient Light) -->
+    <!-- 背景動態環境光暈 -->
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-sage/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
         <div class="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] bg-clay/20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob" style="animation-delay: 2s;"></div>
@@ -119,7 +111,6 @@
 
     <div class="max-w-7xl mx-auto px-6 py-12 md:py-16 flex-grow w-full">
         
-        <!-- 頂部問候區 -->
         <header class="text-center mb-12 animate-float" style="animation-duration: 8s;">
             <h1 class="font-serif text-4xl md:text-5xl font-bold text-forest mb-4 tracking-widest">
                 專屬療癒綠洲
@@ -129,10 +120,9 @@
             </p>
         </header>
 
-        <!-- 主體佈局 -->
         <main class="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-            <!-- 1. 盼望燈塔 (橫跨全幅) -->
+            <!-- 盼望燈塔 -->
             <section class="glass-panel p-8 md:p-10 col-span-1 md:col-span-12 relative overflow-hidden group">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-forest/10 pb-4">
                     <div>
@@ -144,19 +134,16 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- 週末 -->
                     <div class="bg-white/40 rounded-3xl p-6 text-center transition-all duration-300 hover:bg-white/60">
                         <h3 class="text-forest/70 font-bold mb-3 tracking-widest text-sm">本週週末沙發</h3>
                         <div class="font-serif text-3xl md:text-4xl text-forest mb-2" id="weekend-countdown">--</div>
                         <p class="text-xs text-forest/50">撐住，馬上就能躺平了</p>
                     </div>
-                    <!-- 連假 -->
                     <div class="bg-white/40 rounded-3xl p-6 text-center transition-all duration-300 hover:bg-white/60">
                         <h3 class="text-forest/70 font-bold mb-3 tracking-widest text-sm" id="holiday-name">最近連假</h3>
                         <div class="font-serif text-3xl md:text-4xl text-forest mb-2" id="holiday-countdown">--</div>
                         <p class="text-xs text-forest/50">連假充電計畫可以開始想了</p>
                     </div>
-                    <!-- 寒假 -->
                     <div class="bg-white/40 rounded-3xl p-6 text-center transition-all duration-300 hover:bg-white/60">
                         <h3 class="text-forest/70 font-bold mb-3 tracking-widest text-sm">寒假來臨</h3>
                         <div class="font-serif text-3xl md:text-4xl text-forest mb-2" id="winter-countdown">--</div>
@@ -165,10 +152,9 @@
                 </div>
             </section>
 
-            <!-- 2. 四大互動區塊 (橫跨全幅，內部四等分) -->
+            <!-- 四大互動區塊 -->
             <div class="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- 專屬綠洲：呼吸模組 -->
                 <section class="glass-panel p-6 flex flex-col items-center justify-center text-center min-h-[300px]">
                     <h2 class="font-serif text-xl text-slate font-bold mb-2 flex items-center justify-center">
                         專屬綠洲
@@ -181,7 +167,6 @@
                     <p id="breathe-instruction" class="text-xs text-slate mt-6 h-4 font-medium tracking-wide"></p>
                 </section>
 
-                <!-- 溫暖：靈魂維他命 -->
                 <section class="glass-panel p-6 flex flex-col relative overflow-hidden group cursor-pointer" onclick="openVitaminBox()">
                     <div class="absolute inset-0 bg-gradient-to-br from-clay/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <h2 class="font-serif text-xl text-clay font-bold mb-4 flex items-center justify-center">
@@ -194,7 +179,6 @@
                     </div>
                 </section>
 
-                <!-- 辛辣：智慧小語 -->
                 <section class="glass-panel p-6 flex flex-col relative overflow-hidden group cursor-pointer" onclick="openWisdomBox()">
                     <div class="absolute inset-0 bg-gradient-to-br from-stone/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <h2 class="font-serif text-xl text-stone font-bold mb-4 flex items-center justify-center">
@@ -207,7 +191,6 @@
                     </div>
                 </section>
 
-                <!-- 甜寵：每日被聊療 -->
                 <section class="glass-panel p-6 flex flex-col relative overflow-hidden group cursor-pointer" onclick="openFlirtBox()">
                     <div class="absolute inset-0 bg-gradient-to-br from-blush/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <h2 class="font-serif text-xl text-pink-600 font-bold mb-4 flex items-center justify-center">
@@ -222,7 +205,7 @@
 
             </div>
 
-            <!-- 3. 隱形盔甲：法規智庫 (橫跨全幅) -->
+            <!-- 隱形盔甲智庫 -->
             <section class="glass-panel p-8 md:p-10 col-span-1 md:col-span-12">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
                     <div>
@@ -242,7 +225,6 @@
                 </div>
 
                 <div id="law-result-area" class="hidden mt-6 bg-white/40 rounded-3xl p-6 border border-white/60 max-h-80 overflow-y-auto">
-                    <!-- 搜尋結果將顯示於此 -->
                 </div>
             </section>
 
@@ -254,14 +236,13 @@
         網頁規劃設計: 郭啾比JubyKuo / Gemini / 隨時依需求做更新調整
     </footer>
 
-    <!-- Vanilla JavaScript 邏輯實作 -->
+    <!-- JavaScript -->
     <script>
-        // --- 1. 盼望燈塔：假期倒數計算 ---
+        // --- 1. 倒數計時 ---
         function getTimeLeftString(targetDate) {
             const now = new Date();
             const diff = targetDate - now;
             if (diff <= 0) return null; 
-            
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const mins = Math.floor((diff / 1000 / 60) % 60);
@@ -273,8 +254,7 @@
             let target = new Date(now);
             if ((now.getDay() === 5 && now.getHours() >= 16) || now.getDay() === 6 || now.getDay() === 0) {
                 const daysToNextFriday = (5 - now.getDay() + 7) % 7;
-                const addDays = daysToNextFriday === 0 ? 7 : daysToNextFriday;
-                target.setDate(now.getDate() + addDays);
+                target.setDate(now.getDate() + (daysToNextFriday === 0 ? 7 : daysToNextFriday));
             } else {
                 target.setDate(now.getDate() + (5 - now.getDay()));
             }
@@ -318,8 +298,7 @@
         setInterval(updateAllCountdowns, 60000);
         updateAllCountdowns(); 
 
-
-        // --- 2. 專屬綠洲：4-7-8 呼吸法 ---
+        // --- 2. 呼吸模組 ---
         const breatheBtn = document.getElementById('breathe-btn');
         const breatheInstruction = document.getElementById('breathe-instruction');
         let isBreathing = false;
@@ -336,7 +315,6 @@
             setTimeout(() => {
                 breatheBtn.innerText = "憋氣";
                 breatheInstruction.innerText = "屏住呼吸 7 秒";
-                breatheBtn.style.transform = "scale(1.3)"; 
                 
                 setTimeout(() => {
                     breatheBtn.innerText = "呼氣";
@@ -354,7 +332,7 @@
             }, 4000);
         });
 
-        // --- 3. 靈魂維他命、智慧小語、每日被聊療 ---
+        // --- 3. 盲盒資料庫 ---
         const vitamins = [
             "你今天點進來照顧自己，這點就值得一個大大的擁抱。",
             "又撐過了一天，你的存在本身就是一種教育。",
@@ -404,7 +382,7 @@
         function openWisdomBox() { changeBoxText('wisdom-box-text', wisdoms); }
         function openFlirtBox() { changeBoxText('flirt-box-text', flirts); }
 
-        // --- 4. 隱形盔甲：法規智庫檢索 ---
+        // --- 4. 隱形盔甲：法規智庫檢索 (完整升級版) ---
         const legalDB = [
             {
                 keywords: ["管教", "體罰", "罰站", "罰寫", "處罰", "不當管教", "打掃", "勞動服務", "吃東西", "上課", "口香糖", "秩序", "作業"],
@@ -439,7 +417,7 @@
             },
             {
                 keywords: ["提告", "被告", "訴訟", "恐龍家長", "糾紛", "律師", "衝突"],
-                title: "教師涉訟與法律協助權",[object Object]
+                title: "教師涉訟與法律協助權",
                 content: `依據《教師法》第 16 條及輔導管教注意事項：<br>
                 🛡️ <b>您的權利</b>：教師因合法管教學生，與監護權人發生爭議、行政爭訟或其他司法訴訟時，<b>學校應依教師之請求，提供必要之協助</b>。<br>
                 💡 <b>實務建議</b>：依法執行職務涉訟時，服務學校應延聘律師為其辯護。建議平時以書面（如教學日誌）客觀記錄管教過程，作為保全證據。`
